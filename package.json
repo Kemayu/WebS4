@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/Kemayu/WebS4/issues"
   },
-  "homepage": "https://github.com/Kemayu/WebS4#readme"
+  "homepage": "https://github.com/Kemayu/WebS4#readme",
+  "dependencies": {
+    "esbuild": "^0.25.4",
+    "handlebars": "^4.7.8"
+  },
+  "scripts": {
+    "build": "esbuild td5.js --bundle --outfile=out.js --watch" 
+  }
 }
