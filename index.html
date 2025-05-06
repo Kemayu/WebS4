@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice and Fire API</title>
+    <script src="td4.js"></script>
+    <style>
+        /* Styling for buttons */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            background-color: #3e8e41;
+        }
+        #delete {
+            background-color: #f44336;
+        }
+        #delete:hover {
+            background-color: #e53935;
+        }
+        #delete:active {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ice and Fire API Exercises</h1>
+    <button onclick="fetchBooks('https://anapioficeandfire.com/api/books')">Exercice 1: Fetch Books</button>
+    <button onclick="fetchBookDetails(1)">Exercice 2: Fetch Book Details</button>
+    <button onclick="fetchBookAndMainCharacter(1)">Exercice 3: Fetch Book and Main Character</button>
+    <button id="delete" onclick="console.clear()">Clear Console</button>
+</body>
+
+</html>
