@@ -67,6 +67,7 @@ function fetchBookAndMainCharacter(bookId) {
         })
         .then(book => {
             console.log(`Title: ${book.name}, ISBN: ${book.isbn}, Authors: ${book.authors.join(', ')}, Pages: ${book.numberOfPages}`);
+            document.body.innerHTML = `<p>${book.name}</p>`;
             if (book.characters.length > 0) {
                 fetch(book.characters[0])
                     .then(response => {
@@ -79,6 +80,7 @@ function fetchBookAndMainCharacter(bookId) {
                     .then(character => {
                         console.log(`Main Character: ${character.name}, Gender: ${character.gender}, Titles: ${character.titles.join(', ')}`);
                         console.log('Books Appeared In:', character.books);
+                        document.innerHTML = character.books;
                     })
                     .catch(error => console.error('Error fetching character details:', error));
             } else {
@@ -89,6 +91,7 @@ function fetchBookAndMainCharacter(bookId) {
 }
 
 // Example usage:
-// fetchBooks('https://anapioficeandfire.com/api/books');
-// fetchBookDetails(1);
-// fetchBookAndMainCharacter(1);
+fetchBooks('https://anapioficeandfire.com/api/books');
+fetchBookDetails(1);
+fetchBookAndMainCharacter(1);
+
