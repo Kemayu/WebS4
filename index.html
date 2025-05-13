@@ -1,7 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-    <script src="out.js" defer></script>
-    <body>
-        
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice and Fire Books</title>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+    <script src="td5.js" defer></script>
+</head>
+<script src="out.js" defer></script>
+
+<body>
+    <h1>Ice and Fire Books</h1>
+
+    <!-- Container for the list of books -->
+    <div id="books-container"></div>
+
+    <!-- Container for book details -->
+    <div id="book-details-container"></div>
+
+    <!-- Container for character details -->
+    <div id="character-details-container"></div>
+
+    <!-- Handlebars template for the list of books -->
+    <script id="books-template" type="text/x-handlebars-template">
+            <ul>
+                {{#each books}}
+                    <li>
+                        <strong>{{name}}</strong> - {{numberOfPages}} pages
+                        <button onclick="fetchBookDetails('{{id}}')">Voir les détails</button>
+                    </li>
+                {{/each}}
+            </ul>
+        </script>
+
+    <!-- Handlebars template for book details -->
+    <script id="book-details-template" type="text/x-handlebars-template">
+            <h2>{{name}}</h2>
+            <p><strong>ISBN:</strong> {{isbn}}</p>
+            <p><strong>Auteurs:</strong> {{authors}}</p>
+            <p><strong>Nombre de pages:</strong> {{numberOfPages}}</p>
+            <p><strong>Personnages:</strong></p>
+            <ul>
+                {{#each characters}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+            <button onclick="fetchMainCharacterDetails('{{characters.[0]}}')">Voir le personnage principal</button>
+        </script>
+
+    <!-- Handlebars template for character details -->
+    <script id="character-details-template" type="text/x-handlebars-template">
+            <h2>{{name}}</h2>
+            <p><strong>Genre:</strong> {{gender}}</p>
+            <p><strong>Culture:</strong> {{culture}}</p>
+            <p><strong>Alias:</strong> {{aliases}}</p>
+            <p><strong>Interprété par:</strong> {{playedBy}}</p>
+            <p><strong>Apparaît dans les livres:</strong></p>
+            <ul>
+                {{#each books}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </script>
+</body>
+
 </html>
